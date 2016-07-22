@@ -1,2 +1,2 @@
-# cocosExample
-My Test cocos Eengine
+# hello-world
+Hello world new project template.

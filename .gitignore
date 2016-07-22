@@ -1,0 +1,10 @@
+assets/refdata/*
+
+assets/res/*
+
+build/*
+
+library/*
+
+local/*
+temp/*
