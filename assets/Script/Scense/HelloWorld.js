@@ -11,6 +11,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+         cc.thisGame.uiMgr.restoreUIRoot();
         this.label.string = this.text;
     },
 
