@@ -35,5 +35,8 @@ cc.Class({
                     cc.thisGame.sceneMgr.loadScene("helloworld",false);
              }, "OK");
         });   
-    }
+    },
+    onBtPlayEffectClicked:function(event){        
+       cc.thisGame.effectMgr.playEffect("E-Player-Off",event.target,0);
+    },
 });

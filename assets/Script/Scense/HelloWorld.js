@@ -14,7 +14,6 @@ cc.Class({
          cc.thisGame.uiMgr.restoreUIRoot();
         this.label.string = this.text;
 
-       
     },
 
     // called every frame
