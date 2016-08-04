@@ -21,11 +21,11 @@ cc.Class({
         }
     },
     //播放
-    play : function(effectNode,effectType){
+    play : function(effectNode,isInfinity){
         this.node.parent = effectNode;
         this.node.active = true;
         this.curPlayTime=0;
-        if(effectType==1){
+        if(isInfinity){
             this.playTime=-1;
         }
         if(this._animation){
@@ -40,7 +40,6 @@ cc.Class({
 
     //停止
     stop : function(){
-         this.node.active = false;
         cc.thisGame.effectMgr.stopEffect(this.node);
     }
 });

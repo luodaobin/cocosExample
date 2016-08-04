@@ -36,7 +36,13 @@ cc.Class({
              }, "OK");
         });   
     },
-    onBtPlayEffectClicked:function(event){        
-       cc.thisGame.effectMgr.playEffect("E-Player-Off",event.target,0);
+    onBtPlayEffectClicked:function(event){
+       var self=this;        
+       cc.thisGame.effectMgr.playEffect("E-Player-Off",event.target,true,function( effect){
+           //在这里，可以控制特效对象了，对于永久特效的关闭有用。
+           self.scheduleOnce(function(){
+              cc.thisGame.effectMgr.stopEffect(effect); 
+           },2);
+       });
     },
 });
