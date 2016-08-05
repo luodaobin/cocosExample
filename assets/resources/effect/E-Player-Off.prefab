@@ -749,7 +749,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "playTime": 5
+    "playTime": 0.5
   },
   {
     "__type__": "cc.PrefabInfo",

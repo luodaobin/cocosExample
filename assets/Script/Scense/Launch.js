@@ -16,6 +16,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         cc.thisGame.uiMgr.restoreUIRoot();
+        this.node.on(cc.Node.EventType.TOUCH_END,this.onPanelClicked.bind(this));
     },
     onStart: function() {
         // 加载数据
@@ -38,11 +39,22 @@ cc.Class({
     },
     onBtPlayEffectClicked:function(event){
        var self=this;        
-       cc.thisGame.effectMgr.playEffect("E-Player-Off",event.target,true,function( effect){
+       cc.thisGame.effectMgr.playEffect("LavaFlow",event.target,true,function( effect){
            //在这里，可以控制特效对象了，对于永久特效的关闭有用。
            self.scheduleOnce(function(){
               cc.thisGame.effectMgr.stopEffect(effect); 
            },2);
        });
     },
+    onPanelClicked : function(event){
+         cc.log('onPanelClicked:x='+event.getLocation().x + " y="+event.getLocation().y);
+         var self=this;
+          cc.thisGame.effectMgr.playEffect("E-Player-Off", this.node,false,function( effect){
+           //在这里，可以控制特效对象了，对于永久特效的关闭有用。
+           var nodePos=self.node.convertToNodeSpaceAR(event.getLocation()); 
+            cc.log('nodePos:x='+nodePos.x + " y="+nodePos.y);
+           effect.x=nodePos.x;
+           effect.y=nodePos.y;
+       });
+    }
 });

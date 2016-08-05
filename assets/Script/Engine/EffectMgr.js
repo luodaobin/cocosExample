@@ -1,11 +1,20 @@
-//特效管理器 目前只实现了 技能的特效管理
-var EffectMgr = function () {
-    this.effectPool = new cc.NodePool('EffectCtrl');
-};
 
+//特效管理器 
+var EffectMgr = function () {
+    this.effectPools ={};
+
+};
+EffectMgr.prototype.lookupPool=function(effectName){
+    var pool=this.effectPools[effectName];
+    if(pool==null){
+      pool= new cc.NodePool('EffectCtrl');
+      this.effectPools[effectName]=pool;
+    }
+    return pool;
+};
 //播放特效 key 名字 挂载的节点 播放方式 0 常规 1 循环
 EffectMgr.prototype.playEffect = function (effectName, effectNode,isInfinity,cb) {
-    var effect= this.effectPool.get();
+    var effect= this.lookupPool(effectName).get();
     if(null!=effect){
         var effectCtrl = effect.getComponent('EffectCtrl');
         effectCtrl.play(effectNode,isInfinity);
@@ -40,7 +49,9 @@ EffectMgr.prototype.loadEffectAndPlay = function (effectName,effectNode,isInfini
 //停止特效 一般只有循环特效需要调用这个接口停止
 EffectMgr.prototype.stopEffect = function(effect){
     effect.active = false;
-    this.effectPool.put(effect);
+    var effectCtrl = effect.getComponent('EffectCtrl');
+    var effectName=effectCtrl.effectName;
+    this.lookupPool(effectName).put(effect);
 };
 
 var mgr = new EffectMgr();
