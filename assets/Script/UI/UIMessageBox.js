@@ -80,7 +80,7 @@ cc.Class({
         if (typeof this.cb_equit == "function") {
             this.cb_equit();
         }
-        cc.Game.uiMgr.closeUI(this);
+        cc.thisGame.uiMgr.closeUI(this);
     },
 
 });

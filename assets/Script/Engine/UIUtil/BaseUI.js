@@ -35,7 +35,7 @@ cc.Class({
 
         this.node.on('closeUI', function (event) {
             event.stopPropagation();
-            cc.Game.uiMgr.closeUI(self);
+            cc.thisGame.uiMgr.closeUI(self);
         });
 
         self._x = self.node.x;

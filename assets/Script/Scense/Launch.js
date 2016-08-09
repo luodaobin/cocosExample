@@ -32,6 +32,7 @@ cc.Class({
 
              ui.getComponent('UIMessageBox').open("title", "content", function(){
                     cc.log('message box opened!');
+                    cc.thisGame.sceneMgr.loadScene("helloworld",false);
              }, "OK");
         });   
     }

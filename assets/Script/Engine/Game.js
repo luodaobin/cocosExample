@@ -49,8 +49,8 @@ cc.Class({
         //this.rankMgr = require('RankMgr').init();
         //this.hookMgr = require('HookMgr').init();
         //this.debugMgr = require('DebugMgr').init();
-        //this.effectMgr = require('EffectMgr');
-        //this.audioMgr = require('AudioMgr').init();
+        this.effectMgr = require('EffectMgr');
+        this.audioMgr = require('AudioMgr').init();
 
         //this.player = require('Player');
         // 未初始化，先到loading场景, 如果原来就在这个场景，不会有任何变化

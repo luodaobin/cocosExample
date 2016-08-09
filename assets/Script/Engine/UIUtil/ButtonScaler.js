@@ -34,9 +34,9 @@ cc.Class({
     },
     playAudioEffect: function () { 
         if(this.audio){
-            cc.Game.audioMgr.playEffectUrl(this.audio);
+            //cc.thisGame.audioMgr.playEffectUrl(this.audio);
         }else{
-            cc.Game.audioMgr.playEffect(this._audioDefaultName);
+            //cc.thisGame.audioMgr.playEffect(this._audioDefaultName);
         }
         
     }
